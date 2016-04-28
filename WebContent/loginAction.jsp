@@ -3,15 +3,15 @@
 <%
 	String filePath = application.getRealPath("WEB-INF/creators.xml");
 %>
-<jsp:useBean id="meetApp" class="uts.wsd.MeetApp" scope="application">
-	<jsp:setProperty name="meetApp" property="creatorFilePath"
+<jsp:useBean id="creatorBean" class="uts.wsd.CreatorBean" scope="application">
+	<jsp:setProperty name="creatorBean" property="creatorFilePath"
 		value="<%=filePath%>" />
 </jsp:useBean>
 <%
 	String username = request.getParameter("username");
 	String password = request.getParameter("password");
 
-	Creator creator = meetApp.getCreators().login(username, password);
+	Creator creator = creatorBean.getCreators().login(username, password);
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>

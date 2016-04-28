@@ -3,8 +3,8 @@
 <%
 	String filePath = application.getRealPath("WEB-INF/polls.xml");
 %>
-<jsp:useBean id="meetApp" class="uts.wsd.MeetApp" scope="application">
-	<jsp:setProperty name="meetApp" property="pollFilePath"
+<jsp:useBean id="pollBean" class="uts.wsd.PollBean" scope="application">
+	<jsp:setProperty name="pollBean" property="pollFilePath"
 		value="<%=filePath%>" />
 </jsp:useBean>
 
@@ -19,7 +19,7 @@
 	<h1>Main Page</h1>
 
 	<%
-		for (Poll poll : meetApp.getPolls().getList()) {
+		for (Poll poll : pollBean.getPolls().getList()) {
 	%>
 
 	<p><%=poll.getCreatorUsername()%>'s <a href="polldetails.jsp"><%=poll.getTitle()%></a>
