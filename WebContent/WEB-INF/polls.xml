@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<polls>
+	<poll>
+		<title>picnic</title>
+		<creatorUsername>bobby</creatorUsername>
+		<creationDate>22/6/16</creationDate>
+		<open>true</open>
+		<times>
+			<time>12:45</time>
+			<time>11:50</time>
+			<time>8:49</time>
+		</times>
+	</poll>
+	<poll>
+		<title>dinner</title>
+		<creatorUsername>kaitlyn</creatorUsername>
+		<creationDate>19/4/29</creationDate>
+		<open>true</open>
+		<times>
+			<time>12:45</time>
+			<time>11:50</time>
+			<time>8:49</time>
+		</times>
+	</poll>
+	<poll>
+		<title>beach</title>
+		<creatorUsername>kaitlyn</creatorUsername>
+		<creationDate>19/4/29</creationDate>
+		<open>true</open>
+		<times>
+			<time>12:45</time>
+			<time>11:50</time>
+			<time>8:49</time>
+		</times>
+	</poll>
+</polls>
