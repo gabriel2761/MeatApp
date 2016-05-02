@@ -25,7 +25,7 @@
 	%>
 	
 	<p>You are logged in as <%=creator.getUsername()%></p>
-	<p>Click <a href="newpoll.jsp"> to create new poll</a></p>
+	<p>Click <a href="createpoll.jsp"> to create new poll</a></p>
 	<p>Click <a href="logout.jsp">here</a> to logout</p>
 	<%
 		} else {
@@ -40,8 +40,7 @@
 		for (Poll poll : pollBean.getPolls().getList()) {
 	%>
 
-	<p><%=poll.getCreatorUsername()%>'s <a href="polldetails.jsp"><%=poll.getTitle()%></a>
-	</p>
+	<p><%=poll.getCreatorUsername()%>'s <a href="polldetails.jsp"><%=poll.getTitle()%></a></p>
 
 	<%
 		}
