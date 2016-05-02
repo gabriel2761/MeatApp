@@ -22,8 +22,11 @@
 <body>
 	<%
 		if (creator != null) {
+			session.setAttribute("creator", creator); 
 	%>
 	<p>Login successful</p>
+	<p>Welcome, <%= username %></p>
+	<p>Click <a href="index.jsp">here</a> to go to the main page.</p>
 	<%
 		} else {
 	%>

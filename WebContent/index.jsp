@@ -15,10 +15,28 @@
 <title>Insert title here</title>
 </head>
 <body>
+	<%
+		Creator creator = (Creator) session.getAttribute("creator");
+	%>
+	
+	<h1>Meat App</h1>
+	<%
+		if (creator != null) {
+	%>
+	
+	<p>You are logged in as <%=creator.getUsername()%></p>
+	<p>Click <a href="newpoll.jsp"> to create new poll</a></p>
+	<p>Click <a href="logout.jsp">here</a> to logout</p>
+	<%
+		} else {
+	%>
 
-	<h1>Main Page</h1>
+	<a href="register.jsp">register</a>
+	<a href="login.jsp">login</a>
 
 	<%
+		}
+	
 		for (Poll poll : pollBean.getPolls().getList()) {
 	%>
 
