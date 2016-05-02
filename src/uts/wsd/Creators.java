@@ -18,6 +18,13 @@ public class Creators implements Serializable {
 	public void addCreator(Creator creator) {
 		list.add(creator);
 	}
+	
+	public boolean creatorExists(String username) {
+		for (Creator creator: list) {
+			if (creator.getUsername().equals(username)) return true;
+		}
+		return false;
+	}
 
 	public Creator login(String username, String password) {
 		for (Creator creator : list) {
