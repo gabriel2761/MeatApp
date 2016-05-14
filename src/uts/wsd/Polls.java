@@ -23,4 +23,11 @@ public class Polls implements Serializable {
 	public ArrayList<Poll> getList() {
 		return list;
 	}
+
+	public Poll findPoll(String title) {
+		for (Poll poll : list) {
+			if (poll.getTitle().equals(title)) return poll;
+		}
+		return null;
+	}
 }

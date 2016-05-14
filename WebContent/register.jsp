@@ -12,9 +12,14 @@
 <%
 	String username = request.getParameter("username");
 	String password = request.getParameter("password");
+	String passwordConfirm = request.getParameter("password-confirm");
 	String submitted = request.getParameter("submitted");
-
+	boolean passwordsMatch = false;
 	Creators creators = creatorBean.getCreators();
+	
+	if (password != null && passwordConfirm != null) {
+		passwordsMatch = password.equals(passwordConfirm);
+	}
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -25,7 +30,7 @@
 <body>
 
 	<%
-		if (submitted != null && !creators.creatorExists(username)) {
+		if (submitted != null && !creators.creatorExists(username) && passwordsMatch) {
 	%>
 		<p>Register successful</p>
 		<p>Welcome, <%= username %></p>
@@ -39,15 +44,17 @@
 
 	<h1>Register</h1>
 	<form action="register.jsp" method="post">
-		<input type="text" name="username" /> <input type="password"
-			name="password" /> <input type="hidden" name="submitted" value="yes" />
+		<input type="text" name="username" placeholder="Username" required /> 
+		<input type="password"name="password" placeholder="Password" required />
+		<input type="password" name="password-confirm" placeholder="Confirm Password" required/> 
+		<input type="hidden" name="submitted" value="yes" />
 		<input type="submit" />
 	</form>
-
+		
 	<%
-		if (submitted != null && (username == "" || password == "")) {
+		if (submitted != null && !passwordsMatch) {
 	%>	
-		<p>username or password can't be empty</p>	
+		<p>Passwords don't match</p>
 	<% 	
 		} else if (submitted != null && creators.creatorExists(username)) {
 	%>

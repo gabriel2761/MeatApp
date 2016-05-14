@@ -40,7 +40,7 @@
 		for (Poll poll : pollBean.getPolls().getList()) {
 	%>
 
-	<p><%=poll.getCreatorUsername()%>'s <a href="polldetails.jsp"><%=poll.getTitle()%></a></p>
+	<p><%=poll.getCreatorUsername()%>'s <a href="polldetails.jsp?polltitle=<%=poll.getTitle()%>"><%=poll.getTitle()%></a></p>
 
 	<%
 		}

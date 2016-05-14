@@ -8,6 +8,7 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlElementWrapper;
 
+import com.sun.prism.shader.Texture_Color_AlphaTest_Loader;
 
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Poll implements Serializable {
@@ -15,23 +16,51 @@ public class Poll implements Serializable {
 	private String title;
 	private String creatorUsername;
 	private String creationDate;
+	private String location;
+	private String description;
 	private boolean open;
 	
+	@XmlElement(name = "times")
+	private Times times;
+
 	@XmlElementWrapper
-	@XmlElement(name = "time")
-	private ArrayList<String> times;
+	@XmlElement(name = "vote")
+	private ArrayList<Vote> votes = new ArrayList<>();
 
 	public Poll() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Poll(String title, String creatorUsername, String creationDate, boolean open, ArrayList<String> times) {
+	public Poll(String title, String creatorUsername, String creationDate, String location, String description,
+			boolean open, Times times) {
 		super();
 		this.title = title;
 		this.creatorUsername = creatorUsername;
 		this.creationDate = creationDate;
+		this.location = location;
+		this.description = description;
 		this.open = open;
 		this.times = times;
+	}
+
+	public void addVote(Vote vote) {
+		votes.add(vote);
+	}
+
+	public ArrayList<Vote> getVotes() {
+		return votes;
+	}
+
+	public void setVotes(ArrayList<Vote> votes) {
+		this.votes = votes;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
 	}
 
 	public String getTitle() {
@@ -58,6 +87,14 @@ public class Poll implements Serializable {
 		this.creationDate = creationDate;
 	}
 
+	public String getLocation() {
+		return location;
+	}
+
+	public void setLocation(String location) {
+		this.location = location;
+	}
+
 	public boolean isOpen() {
 		return open;
 	}
@@ -66,11 +103,12 @@ public class Poll implements Serializable {
 		this.open = open;
 	}
 
-	public ArrayList<String> getTimes() {
+	public Times getTimes() {
 		return times;
 	}
 
-	public void setTimes(ArrayList<String> times) {
+	public void setTimes(Times times) {
 		this.times = times;
 	}
+
 }
