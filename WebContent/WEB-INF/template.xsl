@@ -31,6 +31,10 @@
 						text-decoration:none;
 						color: #fff;
 					}
+					.main-content {
+						margin: 0 auto;
+						width: 76vw;
+					}
 				</style>
 			</head>
 			<body>
@@ -60,7 +64,14 @@
 	</xsl:template>
 	
 	<xsl:template match="main">
-		<h1>Title</h1>
+		<section class="main-content">
+			<h1>Meatings</h1>
+			<xsl:apply-templates />
+		</section>
+	</xsl:template>
+	
+	<xsl:template match="poll">
+		<p><xsl:value-of select="username"/> - <a href="polldetails.jsp?polltitle={title}"> <xsl:value-of select="title"/></a></p>
 	</xsl:template>
 	
 	
