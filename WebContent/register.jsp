@@ -12,6 +12,7 @@
 <%
 	String username = request.getParameter("username");
 	String password = request.getParameter("password");
+	String email = request.getParameter("email");
 	String passwordConfirm = request.getParameter("password-confirm");
 	String submitted = request.getParameter("submitted");
 	boolean passwordsMatch = false;
@@ -45,6 +46,7 @@
 	<h1>Register</h1>
 	<form action="register.jsp" method="post">
 		<input type="text" name="username" placeholder="Username" required /> 
+		<input type="text" name="email" placeholder="email" required />
 		<input type="password"name="password" placeholder="Password" required />
 		<input type="password" name="password-confirm" placeholder="Confirm Password" required/> 
 		<input type="hidden" name="submitted" value="yes" />
