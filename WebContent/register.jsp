@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8" import="uts.wsd.*"%>
+
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="x" uri="http://java.sun.com/jsp/jstl/xml"%>
+
 <%
 	String filePath = application.getRealPath("WEB-INF/creators.xml");
 %>
@@ -16,7 +20,7 @@
 	String submitted = request.getParameter("submitted");
 	boolean passwordsMatch = false;
 	Creators creators = creatorBean.getCreators();
-	
+
 	if (password != null && passwordConfirm != null) {
 		passwordsMatch = password.equals(passwordConfirm);
 	}
@@ -27,41 +31,45 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 </head>
-<body>
 
-	<%
-		if (submitted != null && !creators.creatorExists(username) && passwordsMatch) {
-	%>
+<c:set var="xmltext">
+	<body>
+		<navbar></navbar>
+		<%
+			if (submitted != null && !creators.creatorExists(username) && passwordsMatch) {
+		%>
 		<p>Register successful</p>
-		<p>Welcome, <%= username %></p>
-		<p>Click <a href="index.jsp">here</a> to go to the main page</p>
+		<p>
+			Welcome,
+			<%=username%></p>
+		<p>
+			Click <a href="index.jsp">here</a> to go to the main page
+		</p>
 
-	<%
+		<%
 			creatorBean.getCreators().addCreator(new Creator(username, password));
-			creatorBean.save();
-		} else {
-	%>
+					creatorBean.save();
+				} else {
 
-	<h1>Register</h1>
-	<form action="register.jsp" method="post">
-		<input type="text" name="username" placeholder="Username" required /> 
-		<input type="password"name="password" placeholder="Password" required />
-		<input type="password" name="password-confirm" placeholder="Confirm Password" required/> 
-		<input type="hidden" name="submitted" value="yes" />
-		<input type="submit" />
-	</form>
-		
-	<%
-		if (submitted != null && !passwordsMatch) {
-	%>	
+					out.print("<register></register>");
+
+					if (submitted != null && !passwordsMatch) {
+		%>
 		<p>Passwords don't match</p>
-	<% 	
-		} else if (submitted != null && creators.creatorExists(username)) {
-	%>
-		<p>The username <%=username%> already exists</p>
-	<% 		
-		}
-		}
-	%>
-</body>
+		<%
+			} else if (submitted != null && creators.creatorExists(username)) {
+		%>
+		<p>
+			The username
+			<%=username%>
+			already exists
+		</p>
+		<%
+			}
+				}
+		%>
+	</body>
+</c:set>
+<c:import url="WEB-INF/register.xsl" var="xslt" />
+<x:transform xml="${xmltext}" xslt="${xslt}" />
 </html>

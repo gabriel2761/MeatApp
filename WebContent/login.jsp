@@ -3,6 +3,7 @@
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="x" uri="http://java.sun.com/jsp/jstl/xml"%>
+
 <%
 	String filePath = application.getRealPath("WEB-INF/creators.xml");
 %>
@@ -18,7 +19,12 @@
 
 	Creator creator = creatorBean.getCreators().login(username, password);
 %>
-
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>MeatApp - Login</title>
+</head>
 
 <c:set var="xmltext">
 	<body>
@@ -33,5 +39,6 @@
  	%>
 	</body>
 </c:set>
-<c:import url="WEB-INF/StyleTest.xsl" var="xslt" />
+<c:import url="WEB-INF/login.xsl" var="xslt" />
 <x:transform xml="${xmltext}" xslt="${xslt}" />
+</html>
