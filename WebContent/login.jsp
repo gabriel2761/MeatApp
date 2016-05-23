@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8" import="uts.wsd.*"%>
+
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="x" uri="http://java.sun.com/jsp/jstl/xml"%>
+
 <%
 	String filePath = application.getRealPath("WEB-INF/creators.xml");
 %>
@@ -19,34 +23,22 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>MeatApp - Login</title>
 </head>
-<body>
-	<h1>Login</h1>
 
-<%
-	if (creator != null) {
-		session.setAttribute("creator", creator);
-%>
-		<p>Login successful</p>
-		<p>Welcome, <%=username%></p>
-		<p>Click <a href="index.jsp">here</a> to go to the main page.</p>
-<%
+<c:set var="xmltext">
+	<body>
+		<navbar></navbar>
+	<% if (creator != null) {
+ 		out.print("<success></success>");
+ 		
 	} else {
-%>
-		<form action="login.jsp" method="post">
-			<input type="text" name="username" required /> 
-			<input type="password" name="password" required />
-			<input type="hidden" name="submitted" value="yes" /> 
-			<input type="submit" />
-		</form>
-<%
-	if (submitted != null) {
-%>	
-		<p>Username or password is incorrect</p>
-<%
-	}}
-%>
-	
-</body>
+		
+		out.print("<main></main>");
+	}
+ 	%>
+	</body>
+</c:set>
+<c:import url="WEB-INF/login.xsl" var="xslt" />
+<x:transform xml="${xmltext}" xslt="${xslt}" />
 </html>

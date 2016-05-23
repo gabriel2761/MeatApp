@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet version="1.0"
 	xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
-	<xsl:template match="body">
+	<xsl:template match="/">
 		<html>
 			<head>
 				<title>MeatApp</title>
@@ -41,9 +41,7 @@
 
 	<xsl:template match="navbar">
 		<nav class="navbar">
-			<h1>
-				<a class="brand" href="index.jsp">MeatApp</a>
-			</h1>
+			<a class="brand" href="index.jsp">MeatApp</a>
 			<xsl:apply-templates />
 		</nav>
 	</xsl:template>
@@ -61,25 +59,9 @@
 		</div>
 	</xsl:template>
 	
+	<xsl:template match="main">
+		<h1>Meat App</h1>
 	
-	
-	<xsl:template match="createpoll">
-	<h2>Enter Poll Details</h2>
-	<form action="createpoll.jsp">
-			<table>
-			<tr><td>Title:</td><td><input type="text" name="title" required="true" /></td></tr>  
-			<tr><td>Date: </td><td><input type="text" name="date" required="true" /></td></tr> 
-			<tr><td>Location: </td><td><input type="text" name="location" required="true" /></td></tr>  
-			<tr><td>Description: </td><td><input type="text" name="description" required ="true" /></td></tr> 
-			<tr><td>Time 1: </td><td><input type="text" name="time1" /></td></tr>  
-			<tr><td>Time 2: </td><td><input type="text" name="time2" /></td></tr>  
-			<tr><td>Time 3: </td><td><input type="text" name="time3" /></td></tr>  
-			<tr><td>Time 4: </td><td><input type="text" name="time4" /></td></tr>  
-			<tr><td>Time 5: </td><td><input type="text" name="time5" /></td></tr>  
-			<tr><td></td><td><input type="hidden" name="submitted" value="yes" /></td></tr> 
-			<tr><td></td><td><input type="submit" value="Create Poll" /></td></tr>
-			</table>
-		</form>
 	</xsl:template>
 	
 	
