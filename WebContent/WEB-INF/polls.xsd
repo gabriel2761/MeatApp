@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://www.uts.edu.au/31284/wsd-polls" xmlns="http://www.uts.edu.au/31284/wsd-polls"
+	elementFormDefault="qualified">
+	<!-- Insert your type declarations here -->
+
+
+	<xs:simpleType name="creationDate">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="\d{1,2}/\d{1,2}/\d{1,4}" />
+		</xs:restriction>
+	</xs:simpleType>
+
+<xs:simpleType name="times">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="\d{1,2}:\d{1,2}" />
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<!-- Insert your element declarations here -->
+	<xs:element name="polls">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="poll" minOccurs="0" maxOccurs="1">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="title" type="xs:string"></xs:element>
+							<xs:element name="CreatorUsername" type="xs:string"></xs:element>
+							<xs:element name="location" type="xs:string"></xs:element>
+							<xs:element name="description" type="xs:string"></xs:element>
+							<xs:element name="times" type="xs:string"></xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>
+			

@@ -16,6 +16,7 @@
 <%
 	String username = request.getParameter("username");
 	String password = request.getParameter("password");
+	String email = request.getParameter("email");
 	String passwordConfirm = request.getParameter("password-confirm");
 	String submitted = request.getParameter("submitted");
 	boolean passwordsMatch = false;
@@ -53,8 +54,9 @@
 
 					out.print("<register></register>");
 
-					if (submitted != null && !passwordsMatch) {
+		if (submitted != null && !passwordsMatch) {
 		%>
+
 		<p>Passwords don't match</p>
 		<%
 			} else if (submitted != null && creators.creatorExists(username)) {
