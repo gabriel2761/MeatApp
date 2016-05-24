@@ -25,19 +25,16 @@
 	}
 %>
 	</navbar>
-	
-	
 		
-	<main></main>
-	
+	<main>
+<%
+	for (Poll poll : pollBean.getPolls().getList()) {
+		out.print("<poll><username>"+poll.getCreatorUsername()+"</username><title>"+poll.getTitle()+"</title></poll>");
+	}
+%>
+	</main>
 </body>
 
 </c:set>
 <c:import url="WEB-INF/template.xsl" var="xslt"/>
 <x:transform xml="${xmltext}" xslt="${xslt}"/>
-
-<% for (Poll poll : pollBean.getPolls().getList()) { %>
-<p><%=poll.getCreatorUsername()%>'s <a href="polldetails.jsp?polltitle=<%=poll.getTitle()%>"><%=poll.getTitle()%></a></p>
-<%
-	}
-%>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://www.uts.edu.au/31284/wsd-creators" xmlns="http://www.uts.edu.au/31284/wsd-creators"
+	elementFormDefault="qualified">
+	<!-- Insert your type declarations here -->
+
+
+	<xs:simpleType name="email">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[A-Za-z\.]*@.*\.[a-z]*[a-z]" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<!-- Insert your element declarations here -->
+	<xs:element name="creators">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="creator" minOccurs="0" maxOccurs="1">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="username" type="xs:string"></xs:element>
+							<xs:element name="password" type="xs:string"></xs:element>
+							<xs:element name="email" type="email"></xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>
+								
