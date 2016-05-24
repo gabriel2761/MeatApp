@@ -48,7 +48,7 @@
 		</p>
 
 		<%
-			creatorBean.getCreators().addCreator(new Creator(username, password));
+			creatorBean.getCreators().addCreator(new Creator(username, password, email));
 					creatorBean.save();
 				} else {
 
