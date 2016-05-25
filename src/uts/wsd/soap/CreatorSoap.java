@@ -13,6 +13,7 @@ import javax.xml.ws.handler.MessageContext;
 import uts.wsd.Creator;
 import uts.wsd.CreatorBean;
 import uts.wsd.PollBean;
+import uts.wsd.Polls;
 
 @WebService
 public class CreatorSoap {
@@ -52,6 +53,11 @@ public class CreatorSoap {
 	@WebMethod
 	public Creator login(String username, String password) throws JAXBException, IOException {
 		return getCreatorBean().getCreators().login(username, password);
+	}
+	
+	@WebMethod
+	public Polls getPolls() throws JAXBException, IOException {
+		return getPollBean().getPolls();
 	}
 
 }
