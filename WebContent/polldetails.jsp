@@ -9,50 +9,50 @@
 </jsp:useBean>
 
 <%
+	Creator creator = (Creator) session.getAttribute("creator");
 	String voted = request.getParameter("voted");
 	String title = request.getParameter("polltitle");
 	String voterName = request.getParameter("voterName");
 	String voterTime = request.getParameter("voterTime");
 	Poll poll = pollBean.getPolls().findPoll(title);
 %>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="x" uri="http://java.sun.com/jsp/jstl/xml"%>
 <c:set var="xmltext">
 <body>
-
-	<head>
-		<title></title>
-		</head>
-	<navbar></navbar>
 	
+ <% 
+	if (creator == null) { 
+		out.print("<navbar><logged-out></logged-out></navbar>");
+	} else {
+		out.print("<navbar><logged-in></logged-in></navbar>");
+	}
+%>
 	
 <%
 	if (poll != null) {
 %>
-
-	<p>Poll Title: <%= poll.getTitle() %></p>
-	<p>Creator: <%= poll.getCreatorUsername() %></p>
-	<p>Creation Date: <%= poll.getCreationDate() %></p>
-	<p>Meeting Location: <%= poll.getLocation() %></p>
-	<p>Description: <%= poll.getDescription() %></p>
-	
+	<details>
+		<title><%= poll.getTitle() %></title>
+		<username><%= poll.getCreatorUsername() %></username>
+		<date><%= poll.getCreationDate() %></date>
+		<location><%= poll.getLocation() %></location>
+		<description><%= poll.getDescription() %></description>	
+	</details>
 <%
 	if (voted == null) {
 %>
 	
-	<form action="polldetails.jsp" method="post">
-		<input type="hidden" name="polltitle" value="<%= title %>"/>
-		<input type="hidden" name="voted" value="yes" />
+	<times>
+		<title><%= poll.getTitle() %></title>
 <%
 	for (String time : poll.getTimes().getList()) {	
 %>
-		<input type="radio" name="voterTime" required value="<%= time %>"><%= time %><br>
+		<time><value><%= time %></value></time>
 <% 
 	} 
 %>
-		<label for="">Name:</label> <input type="text" required placeholder="Name" name="voterName" />
-		<input type="submit"  value="vote"/>
-	</form>
-	
+	</times>
 <% 
 	} else {
 %>
@@ -64,18 +64,17 @@
 		
 		for (Vote vote : pollBean.getPolls().findPoll(title).getVotes()) {
 %>
-		<p><%= vote.getName() %> <%= vote.getTime() %></p>
-<%
-
-%>
-	
+		<result>
+			<votename><%= vote.getName() %></votename>
+			<votetime><%= vote.getTime() %></votetime>
+		</result>
 <% 
 	}}} else {
 %>
 	<p>404 Poll details not found.</p>
 <%	
 	}
-%>
+%> 
 </body>
 </c:set>
 <c:import url="WEB-INF/polldetails.xsl" var="xslt" />
