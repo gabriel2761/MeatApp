@@ -32,7 +32,17 @@
 
 <c:set var="xmltext">
 	<body>
-		<head><navbar></navbar></head>
+		<head>
+		<navbar>
+		<% 
+			if (session.getAttribute("creator") == null) { 
+				out.print("<logged-out></logged-out>");
+			} else {
+				out.print("<logged-in></logged-in>");
+			}
+		%>
+		</navbar>
+		</head>
 		<%
 			if (submitted != null && !creators.creatorExists(username) && passwordsMatch) {
 		%>

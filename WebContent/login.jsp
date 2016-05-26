@@ -23,7 +23,15 @@
 <c:set var="xmltext">
 	<body>
 		<title></title>
-		<navbar></navbar>
+		<navbar>
+		<% 
+			if (creator == null) { 
+				out.print("<logged-out></logged-out>");
+			} else {
+				out.print("<logged-in></logged-in>");
+			}
+		%>
+		</navbar>
 		<%
 			if (creator != null) {
 					session.setAttribute("creator", creator);
