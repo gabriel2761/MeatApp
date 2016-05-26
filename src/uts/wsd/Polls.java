@@ -24,6 +24,16 @@ public class Polls implements Serializable {
 		}
 		return openPolls;
 	}
+	
+	public ArrayList<Poll> getPollByCreator(String username) {
+		ArrayList<Poll> polls = new ArrayList<>();
+		for (Poll poll : list) {
+			if (poll.getCreatorUsername().equals(username)) {
+				polls.add(poll);
+			}
+		}
+		return polls;
+	}
 
 	public void addPoll(Poll poll) {
 		list.add(poll);

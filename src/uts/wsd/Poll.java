@@ -13,6 +13,7 @@ import com.sun.prism.shader.Texture_Color_AlphaTest_Loader;
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Poll implements Serializable {
 
+	private int id;
 	private String title;
 	private String creatorUsername;
 	private String creationDate;
