@@ -29,7 +29,9 @@
 	<main>
 <%
 	for (Poll poll : pollBean.getPolls().getList()) {
-		out.print("<poll><username>"+poll.getCreatorUsername()+"</username><title>"+poll.getTitle()+"</title></poll>");
+		if (poll.isOpen()) {
+			out.print("<poll><username>"+poll.getCreatorUsername()+"</username><title>"+poll.getTitle()+"</title></poll>");
+		}
 	}
 %>
 	</main>
