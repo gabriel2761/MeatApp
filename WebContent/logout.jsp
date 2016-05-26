@@ -8,7 +8,10 @@
 
 <c:set var="xmltext">
 	<body>
-		<navbar></navbar>
+		<navbar>
+			<logged-out></logged-out>
+		</navbar>
+		
 		<log-out></log-out>
 
 		<%session.invalidate();%>
