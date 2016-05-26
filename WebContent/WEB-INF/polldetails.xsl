@@ -4,32 +4,32 @@
 	<xsl:template match="/">
 		<html>
 			<head>
-				<title>MeatApp</title>
+				<title>MeatApp - Poll Details</title>
 				<style>
-					html,
+						html,
 					body {
 						margin: 0;
 						padding: 0;
 						font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-						font-size: 22px;
+						font-size: 30px;
 					}
 					.navbar {
-						width: 100%;
-						height: 40px;
-						background-color: #D32F2F;
-						display: flex;
-						align-items: center;
-						justify-content: space-between;
-						padding: 16px;
+					width: 100%;
+					height: 40px;
+					background-color: #D32F2F;
+					display: flex;
+					align-items: center;
+					justify-content: space-between;
+					padding: 16px;
 					}
 					.brand {
-						text-decoration:none;
-						color: #fff;
+					text-decoration:none;
+					color: #fff;
 					}
 					.navbar-button {
-						margin-right: 50px;
-						text-decoration:none;
-						color: #fff;
+					margin-right: 50px;
+					text-decoration:none;
+					color: #fff;
 					}
 				</style>
 			</head>
@@ -60,8 +60,18 @@
 	</xsl:template>
 	
 	<xsl:template match="main">
-		<h1>Meat App</h1>
+		<section class="main-content">
+			<h1>Poll Details</h1>
+			<xsl:apply-templates />
+		</section>
+	</xsl:template>
 	
+	<xsl:template match="details">
+		
+	</xsl:template>
+	
+	<xsl:template match="poll">
+		<p><xsl:value-of select="username"/> - <a href="polldetails.jsp?polltitle={title}"> <xsl:value-of select="title"/></a></p>
 	</xsl:template>
 	
 	

@@ -1,35 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet version="1.0"
 	xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
-	<xsl:template match="body">
+	<xsl:template match="/">
 		<html>
 			<head>
-				<title>MeatApp</title>
+				<title>MeatApp - Create Poll</title>
 				<style>
-					html,
+						html,
 					body {
 						margin: 0;
 						padding: 0;
 						font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-						font-size: 22px;
+						font-size: 30px;
 					}
 					.navbar {
-						width: 100%;
-						height: 40px;
-						background-color: #D32F2F;
-						display: flex;
-						align-items: center;
-						justify-content: space-between;
-						padding: 16px;
+					width: 100%;
+					height: 40px;
+					background-color: #D32F2F;
+					display: flex;
+					align-items: center;
+					justify-content: space-between;
+					padding: 16px;
 					}
 					.brand {
-						text-decoration:none;
-						color: #fff;
+					text-decoration:none;
+					color: #fff;
 					}
 					.navbar-button {
-						margin-right: 50px;
-						text-decoration:none;
-						color: #fff;
+					margin-right: 50px;
+					text-decoration:none;
+					color: #fff;
 					}
 				</style>
 			</head>

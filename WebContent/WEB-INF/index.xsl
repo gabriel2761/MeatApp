@@ -41,17 +41,9 @@
 
 	<xsl:template match="navbar">
 		<nav class="navbar">
-			<h1>
-				<a class="brand" href="index.jsp">MeatApp</a>
-			</h1>
+			<h1><a class="brand" href="index.jsp">MeatApp</a></h1>
 			<xsl:apply-templates />
 		</nav>
-	</xsl:template>
-
-
-	<xsl:template match="main">
-		<h1>Meat App</h1>
-
 	</xsl:template>
 	
 	<xsl:template match="logged-out">
@@ -66,23 +58,17 @@
 			<a class="navbar-button" href="logout.jsp">Logout</a>
 		</div>
 	</xsl:template>
-
-	<xsl:template match="register">
-		<form action="register.jsp">
-			
-				<h2>Register</h2>
-				<form action="register.jsp" method="post">
-				<table>
-					<tr><td>Username:</td><td><input type="text" name="username" placeholder="Username" required="true" /></td></tr>
-					<tr><td>Password:</td><td><input type="password" name="password" placeholder="Password" required="true" /></td></tr>
-					<tr><td>Confirm password:</td><td><input type="password" name="password-confirm" placeholder="Confirm Password" required="true" /></td></tr>
-					<tr><td></td><td><input type="hidden" name="submitted" value="yes" /></td></tr>
-					<tr><td></td><td><input type="submit" value="Submit" /></td></tr>
-				</table>
-				</form>
-			
-		</form>
+	
+	<xsl:template match="main">
+		<section class="main-content">
+			<h2>Meatings</h2>
+			<xsl:apply-templates />
+		</section>
 	</xsl:template>
-
-
+	
+	<xsl:template match="poll">
+		<p><xsl:value-of select="username"/> - <a href="polldetails.jsp?polltitle={title}"> <xsl:value-of select="title"/></a></p>
+	</xsl:template>
+	
+	
 </xsl:stylesheet>

@@ -36,5 +36,5 @@
 </body>
 
 </c:set>
-<c:import url="WEB-INF/template.xsl" var="xslt"/>
+<c:import url="WEB-INF/index.xsl" var="xslt"/>
 <x:transform xml="${xmltext}" xslt="${xslt}"/>

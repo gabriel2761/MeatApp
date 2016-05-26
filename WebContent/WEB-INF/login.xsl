@@ -4,14 +4,14 @@
 	<xsl:template match="/">
 		<html>
 			<head>
-				<title>MeatApp</title>
+				<title>MeatApp - Login</title>
 				<style>
-					html,
+						html,
 					body {
-					margin: 0;
-					padding: 0;
-					font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-					font-size: 22px;
+						margin: 0;
+						padding: 0;
+						font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+						font-size: 30px;
 					}
 					.navbar {
 					width: 100%;
@@ -41,7 +41,8 @@
 	
 	<xsl:template match="navbar">
 		<nav class="navbar">
-			<a class="brand" href="index.jsp">MeatApp</a>
+			<h1><a class="brand" href="index.jsp">MeatApp</a></h1>
+			<xsl:apply-templates />
 		</nav>
 	</xsl:template>
 	
@@ -60,7 +61,10 @@
 	
 
 	<xsl:template match="main">
-	<h2>Login</h2>
+	<section class="main-content">
+			<h2>Login</h2>
+			<xsl:apply-templates />
+		</section>
 	<table>
 	<form action="login.jsp" method="post">
 			<tr><td>Username:</td><td><input type="text" name="username" required="true" /></td></tr> 
