@@ -34,6 +34,23 @@
 					.medium-text {
 						font-size: 22px;
 					}
+					.create-poll-button {
+					text-decoration:none;
+					padding: 12px;
+					background-color: #F44336;
+					color: #fff;
+					box-shadow: 0 2px 8px #888888;
+					margin: 20px 10px; 
+					width: 260px;
+					text-align: center;
+					display: block;
+					font-size: 16px;
+					border: none;
+					cursor: pointer;
+					}
+					.create-poll-button:hover {
+					box-shadow: 0 2px 16px #555;
+					}
 				</style>
 			</head>
 			<body>
@@ -58,6 +75,7 @@
 	
 	<xsl:template match="logged-in">
 		<div class="navbar-buttons">
+			<a href="profile.jsp" class="navbar-button">Profile</a>
 			<a class="navbar-button" href="logout.jsp">Logout</a>
 		</div>
 	</xsl:template>
@@ -71,8 +89,7 @@
 	</xsl:template>
 	
 	<xsl:template match="times">
-		<form action="polldetails.jsp" method="post">
-			<input type="hidden" name="polltitle" value="{title}"/>
+		<form action="polldetails.jsp?polltitle={title}" method="post">
 			<input type="hidden" name="voted" value="yes" />
 			<div>
 				<xsl:apply-templates></xsl:apply-templates>
@@ -90,6 +107,14 @@
 	
 	<xsl:template match="result">
 		<p><xsl:value-of select="votename"></xsl:value-of> - <xsl:value-of select="votetime"></xsl:value-of></p>
+	</xsl:template>
+	
+	<xsl:template match="close">
+		<form action="polldetails.jsp" method="post">
+			<input type="hidden" name="polltitle" value="{title}" ></input>
+			<input type="hidden" name="closepoll" value="closepoll"></input>
+			<input class="create-poll-button" type="submit" value="Close Poll"></input>
+		</form>
 	</xsl:template>
 	
 </xsl:stylesheet>

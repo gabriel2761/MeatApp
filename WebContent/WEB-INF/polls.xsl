@@ -69,8 +69,6 @@
 		</div>
 	</xsl:template>
 	
-	
-	
 	<xsl:template match="createpoll">
 	<h2>Enter Poll Details</h2>
 	<form action="createpoll.jsp">
