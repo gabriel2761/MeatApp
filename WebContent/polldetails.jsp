@@ -72,7 +72,7 @@
 <% 
 	}}} else {
 %>
-	<p>Poll details not found.</p>
+	<p>404 Poll details not found.</p>
 <%	
 	}
 %>
