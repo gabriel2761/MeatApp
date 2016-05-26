@@ -88,6 +88,7 @@
 
 	<xsl:template match="logged-in">
 		<div class="navbar-buttons">
+			<a class="navbar-button" href="profile.jsp">Profile</a>
 			<a class="navbar-button" href="logout.jsp">Logout</a>
 		</div>
 	</xsl:template>

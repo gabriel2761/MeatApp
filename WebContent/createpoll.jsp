@@ -13,6 +13,7 @@
 </jsp:useBean>
 <%
 	String submitted = request.getParameter("submitted");
+	Creator creator = (Creator) session.getAttribute("creator");
 
 	if (submitted != null) {
 
@@ -28,8 +29,6 @@
 				times.addTime(time);
 		}
 
-		Creator creator = (Creator) session.getAttribute("creator");
-
 		Poll poll = new Poll(title, creator.getUsername(), date, location, description, true, times);
 		pollBean.getPolls().addPoll(poll);
 		pollBean.save();
@@ -41,9 +40,18 @@
 		<head>
 		<title></title>
 		</head>
-	<navbar></navbar>
+		<navbar>
+		<% 
+			if (creator == null) { 
+				out.print("<logged-out></logged-out>");
+			} else {
+				out.print("<logged-in></logged-in>");
+			}
+		%>
+		</navbar>
 
 	<%
+		if (creator != null) {
 		if (submitted == null) {
 	%>
 	<createpoll></createpoll>
@@ -55,6 +63,8 @@
 		Click <a href="index.jsp"> to go back to the main page.</a>
 	</p>
 	<%
+		}} else {
+			out.print("Please log in to create a poll");
 		}
 	%>
 	</body>
