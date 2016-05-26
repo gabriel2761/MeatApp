@@ -22,6 +22,8 @@
 	boolean passwordsMatch = false;
 	Creators creators = creatorBean.getCreators();
 
+	if (username == null) username = "";
+	if (email == null) email = "";
 	if (password != null && passwordConfirm != null) {
 		passwordsMatch = password.equals(passwordConfirm);
 	}
@@ -35,20 +37,14 @@
 			if (submitted != null && !creators.creatorExists(username) && passwordsMatch) {
 		%>
 		<p>Register successful</p>
-		<p>
-			Welcome,
-			<%=username%></p>
-		<p>
-			Click <a href="index.jsp">here</a> to go to the main page
-		</p>
+		<p>Welcome, <%=username%></p>
+		<p>Click <a href="index.jsp">here</a> to go to the main page</p>
 
 		<%
 			creatorBean.getCreators().addCreator(new Creator(username, password, email));
 					creatorBean.save();
 				} else {
-
 					out.print("<register></register>");
-
 		if (submitted != null && !passwordsMatch) {
 		%>
 
@@ -56,14 +52,9 @@
 		<%
 			} else if (submitted != null && creators.creatorExists(username)) {
 		%>
-		<p>
-			The username
-			<%=username%>
-			already exists
-		</p>
+		<p>The username <%=username%> already exists</p>
 		<%
-			}
-				}
+			}}
 		%>
 	</body>
 </c:set>
