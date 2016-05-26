@@ -67,7 +67,10 @@
 	</xsl:template>
 	
 	<xsl:template match="poll">
+		<p>
 		<a href="polldetails.jsp?polltitle={title}"><xsl:value-of select="title"></xsl:value-of></a>
+		- <xsl:value-of select="status"></xsl:value-of>
+		</p>
 	</xsl:template>
 
 	<xsl:template match="navbar">

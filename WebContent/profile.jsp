@@ -26,7 +26,7 @@
 			if (polls.isEmpty()) out.print("You currently have no polls");
 			
 			for (Poll poll : polls) {
-				out.print("<poll><title>"+poll.getTitle()+"</title><status></status></poll>");
+				out.print("<poll><title>"+poll.getTitle()+"</title><status>"+(poll.isOpen() ? "open" : "close")+"</status></poll>");
 			}
 			
 			out.print("</main>");
