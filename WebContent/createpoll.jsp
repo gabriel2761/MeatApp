@@ -58,10 +58,7 @@
 	<%
 		} else {
 	%>
-	<p>Poll Successfully Created</p>
-	<p>
-		Click <a href="index.jsp"> to go back to the main page.</a>
-	</p>
+	<success></success>
 	<%
 		}} else {
 			out.print("Please log in to create a poll");
