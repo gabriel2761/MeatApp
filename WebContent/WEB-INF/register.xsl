@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet version="1.0"
 	xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
-	<xsl:template match="body">
+	<xsl:template match="/">
 		<html>
 			<head>
-				<title>MeatApp</title>
+				<title>MeatApp - Register</title>
 				<style>
-					html,
+						html,
 					body {
 						margin: 0;
 						padding: 0;
 						font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-						font-size: 22px;
+						font-size: 30px;
 					}
 					.navbar {
 					width: 100%;
@@ -77,7 +77,7 @@
 					<tr><td>Password:</td><td><input type="password" name="password" placeholder="Password" required="true" /></td></tr>
 					<tr><td>Confirm password:</td><td><input type="password" name="password-confirm" placeholder="Confirm Password" required="true" /></td></tr>
 					<tr><td></td><td><input type="hidden" name="submitted" value="yes" /></td></tr>
-					<tr><td></td><td><input type="submit" /></td></tr>
+					<tr><td></td><td><input type="submit" value="Submit" /></td></tr>
 				</table>
 				</form>
 			

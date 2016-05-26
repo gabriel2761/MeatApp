@@ -6,12 +6,12 @@
 			<head>
 				<title>MeatApp</title>
 				<style>
-					html,
+						html,
 					body {
-					margin: 0;
-					padding: 0;
-					font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-					font-size: 22px;
+						margin: 0;
+						padding: 0;
+						font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+						font-size: 30px;
 					}
 					.navbar {
 					width: 100%;

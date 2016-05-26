@@ -1,18 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet version="1.0"
 	xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
-	<xsl:template match="body">
+	<xsl:template match="/">
 		<html>
 			<head>
-				<title>MeatApp</title>
+				<title>MeatApp - Logout</title>
 				<style>
-					html,
+						html,
 					body {
-					margin: 0;
-					padding: 0;
-					font-family: "Helvetica
-					Neue", Helvetica, Arial, sans-serif;
-					font-size: 22px;
+						margin: 0;
+						padding: 0;
+						font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+						font-size: 30px;
 					}
 					.navbar {
 					width: 100%;
@@ -42,7 +41,10 @@
 
 	<xsl:template match="navbar">
 		<nav class="navbar">
-			<a class="brand" href="index.jsp">MeatApp</a>
+			<h1>
+				<a class="brand" href="index.jsp">MeatApp</a>
+			</h1>
+			<xsl:apply-templates />
 		</nav>
 	</xsl:template>
 	
@@ -61,7 +63,7 @@
 
 	<xsl:template match="log-out">
 		
-		<h2>You have been logged out.</h2>
+		<h3>You have been logged out.</h3>
 		<p>
 			Click <a href="index.jsp"> to return to the main page</a>
 		</p>

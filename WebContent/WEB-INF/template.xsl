@@ -6,34 +6,30 @@
 			<head>
 				<title>MeatApp</title>
 				<style>
-					html,
+						html,
 					body {
 						margin: 0;
 						padding: 0;
 						font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-						font-size: 22px;
+						font-size: 30px;
 					}
 					.navbar {
-						width: 100%;
-						height: 40px;
-						background-color: #D32F2F;
-						display: flex;
-						align-items: center;
-						justify-content: space-between;
-						padding: 16px;
+					width: 100%;
+					height: 40px;
+					background-color: #D32F2F;
+					display: flex;
+					align-items: center;
+					justify-content: space-between;
+					padding: 16px;
 					}
 					.brand {
-						text-decoration:none;
-						color: #fff;
+					text-decoration:none;
+					color: #fff;
 					}
 					.navbar-button {
-						margin-right: 50px;
-						text-decoration:none;
-						color: #fff;
-					}
-					.main-content {
-						margin: 0 auto;
-						width: 76vw;
+					margin-right: 50px;
+					text-decoration:none;
+					color: #fff;
 					}
 				</style>
 			</head>
