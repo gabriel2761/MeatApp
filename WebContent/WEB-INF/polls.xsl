@@ -71,7 +71,7 @@
 	
 	<xsl:template match="createpoll">
 	<h2>Enter Poll Details</h2>
-	<form action="createpoll.jsp">
+	<form action="createpoll.jsp" method="post">
 			<table>
 			<tr><td>Title:</td><td><input type="text" name="title" required="true" /></td></tr>  
 			<tr><td>Date: </td><td><input type="text" name="date" required="true" /></td></tr> 

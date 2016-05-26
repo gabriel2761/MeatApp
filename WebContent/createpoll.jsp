@@ -14,9 +14,12 @@
 <%
 	String submitted = request.getParameter("submitted");
 	Creator creator = (Creator) session.getAttribute("creator");
-
+	boolean pollexists = false;
 	if (submitted != null) {
-
+		Poll poll = pollBean.getPolls().findPoll(request.getParameter("title"));
+		if (poll != null) pollexists = true;
+	}
+	if (submitted != null) {
 		String title = request.getParameter("title");
 		String date = request.getParameter("date");
 		String location = request.getParameter("location");
@@ -52,10 +55,11 @@
 
 	<%
 		if (creator != null) {
-		if (submitted == null) {
-	%>
-	<createpoll></createpoll>
-	<%
+		if (submitted == null && !pollexists) {
+			out.print("<createpoll></createpoll>");
+		} else if (submitted != null && pollexists) {	
+			out.print("<createpoll></createpoll>");
+			out.print("The poll title \"" + request.getParameter("title") + "\" already exists");
 		} else {
 	%>
 	<success></success>
