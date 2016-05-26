@@ -31,6 +31,17 @@
 					text-decoration:none;
 					color: #fff;
 					}
+					.create-poll-button {
+						text-decoration:none;
+						padding: 12px;
+						background-color: #F44336;
+						color: #fff;
+						box-shadow: 0 2px 8px #888888;
+						margin: 10px;
+					}
+					.create-poll-button:hover {
+						box-shadow: 0 2px 16px #555;
+					}
 				</style>
 			</head>
 			<body>
@@ -73,10 +84,15 @@
 	</xsl:template>
 	
 	<xsl:template match="success">
-	<p>Login successful</p>
+		<p>Login successful</p>
 		<p>Welcome, <xsl:value-of select="username"></xsl:value-of></p>
 		<p>Click <a href="index.jsp">here</a> to go to the main page.</p>
-	
+		
+		<h2>Your polls</h2>
+		
+		
+		
+		<a class="create-poll-button" href="createpoll.jsp">Create New Poll</a>
 	</xsl:template>
 	
 	
