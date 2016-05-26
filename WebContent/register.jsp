@@ -44,10 +44,9 @@
 			creatorBean.getCreators().addCreator(new Creator(username, password, email));
 			creatorBean.save();
 			} else {
-				out.print("<register></register>");
+				out.print("<register><username>"+username+"</username></register>");
 			if (submitted != null && !passwordsMatch) {
 		%>
-
 		<p>Passwords don't match</p>
 		<%
 			} else if (submitted != null && creators.creatorExists(username)) {
