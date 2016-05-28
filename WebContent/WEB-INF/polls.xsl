@@ -4,7 +4,7 @@
 	<xsl:template match="/">
 		<html>
 			<head>
-				<title>MeatApp - Create Poll</title>
+				<title>MeatApp</title>
 				<style>
 						html,
 					body {
