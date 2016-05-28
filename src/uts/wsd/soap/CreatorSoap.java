@@ -1,6 +1,7 @@
 package uts.wsd.soap;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.annotation.Resource;
 import javax.jws.WebMethod;
@@ -12,6 +13,7 @@ import javax.xml.ws.handler.MessageContext;
 
 import uts.wsd.Creator;
 import uts.wsd.CreatorBean;
+import uts.wsd.Poll;
 import uts.wsd.PollBean;
 import uts.wsd.Polls;
 
@@ -23,7 +25,7 @@ public class CreatorSoap {
 
 	@Resource
 	private WebServiceContext context;
-	
+
 	private PollBean getPollBean() throws JAXBException, IOException {
 		ServletContext application = (ServletContext) context.getMessageContext().get(MessageContext.SERVLET_CONTEXT);
 		synchronized (application) {
@@ -36,7 +38,7 @@ public class CreatorSoap {
 			return pollBean;
 		}
 	}
-	
+
 	private CreatorBean getCreatorBean() throws JAXBException, IOException {
 		ServletContext application = (ServletContext) context.getMessageContext().get(MessageContext.SERVLET_CONTEXT);
 		synchronized (application) {
@@ -51,13 +53,19 @@ public class CreatorSoap {
 	}
 
 	@WebMethod
+
 	public Creator login(String username, String password) throws JAXBException, IOException {
 		return getCreatorBean().getCreators().login(username, password);
 	}
-	
+
 	@WebMethod
-	public Polls getPolls() throws JAXBException, IOException {
-		return getPollBean().getPolls();
+	public ArrayList<Poll> getOpenPolls() throws JAXBException, IOException {
+		return getPollBean().getPolls().getOpenPolls();
+	}
+
+	@WebMethod
+	public ArrayList<Poll> getPollsByCreator(String username) throws JAXBException, IOException {
+		return getPollBean().getPolls().getPollByCreator(username);
 	}
 
 }
