@@ -55,19 +55,17 @@
 	
 	<xsl:template match="logged-in">
 		<div class="navbar-buttons">
+			<a class="navbar-button" href="profile.jsp">Profile</a>
 			<a class="navbar-button" href="logout.jsp">Logout</a>
 		</div>
 	</xsl:template>
 	
 
 	<xsl:template match="main">
-	<section class="main-content">
-			<h2>Login</h2>
-			<xsl:apply-templates />
-		</section>
+	<h2>Login</h2>
 	<table>
-	<form action="login.jsp" method="post">
-			<tr><td>Username:</td><td><input type="text" name="username" required="true" /></td></tr> 
+		<form action="login.jsp" method="post">
+			<tr><td>Username:</td><td><input value="{username}" type="text" name="username" required="true" /></td></tr> 
 			<tr><td>Password:</td><td><input type="password" name="password" required="true" /></td></tr>
 			<tr><td></td><td><input type="hidden" name="submitted" value="yes" /></td></tr> 
 			<tr><td><input type="submit" /></td></tr>
@@ -76,10 +74,10 @@
 	</xsl:template>
 	
 	<xsl:template match="success">
-	<p>Login successful</p>
-		<p>Welcome,</p>
+		<p>Login successful</p>
+		<p>Welcome, <xsl:value-of select="username"></xsl:value-of></p>
 		<p>Click <a href="index.jsp">here</a> to go to the main page.</p>
-	
+		<p>Click <a href="profile.jsp">here</a> to go to your profile</p>
 	</xsl:template>
 	
 	

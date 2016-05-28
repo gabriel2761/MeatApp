@@ -68,19 +68,15 @@
 	</xsl:template>
 
 	<xsl:template match="register">
-		<form action="register.jsp">
-			
-				<h2>Register</h2>
-				<form action="register.jsp" method="post">
-				<table>
-					<tr><td>Username:</td><td><input type="text" name="username" placeholder="Username" required="true" /></td></tr>
-					<tr><td>Password:</td><td><input type="password" name="password" placeholder="Password" required="true" /></td></tr>
-					<tr><td>Confirm password:</td><td><input type="password" name="password-confirm" placeholder="Confirm Password" required="true" /></td></tr>
-					<tr><td></td><td><input type="hidden" name="submitted" value="yes" /></td></tr>
-					<tr><td></td><td><input type="submit" value="Submit" /></td></tr>
-				</table>
-				</form>
-			
+		<h2>Register</h2>
+		<form action="register.jsp" method="post">
+			<table>
+				<tr><td>Username:</td><td><input value="{username}" type="text" name="username" placeholder="Username" required="true" /></td></tr>
+				<tr><td>Password:</td><td><input type="password" name="password" placeholder="Password" required="true" /></td></tr>
+				<tr><td>Confirm password:</td><td><input type="password" name="password-confirm" placeholder="Confirm Password" required="true" /></td></tr>
+				<tr><td></td><td><input type="hidden" name="submitted" value="yes" /></td></tr>
+				<tr><td></td><td><input type="submit" value="Submit" /></td></tr>
+			</table>
 		</form>
 	</xsl:template>
 

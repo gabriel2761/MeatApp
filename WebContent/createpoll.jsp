@@ -13,9 +13,13 @@
 </jsp:useBean>
 <%
 	String submitted = request.getParameter("submitted");
-
+	Creator creator = (Creator) session.getAttribute("creator");
+	boolean pollexists = false;
 	if (submitted != null) {
-
+		Poll poll = pollBean.getPolls().findPoll(request.getParameter("title"));
+		if (poll != null) pollexists = true;
+	}
+	if (submitted != null) {
 		String title = request.getParameter("title");
 		String date = request.getParameter("date");
 		String location = request.getParameter("location");
@@ -28,8 +32,6 @@
 				times.addTime(time);
 		}
 
-		Creator creator = (Creator) session.getAttribute("creator");
-
 		Poll poll = new Poll(title, creator.getUsername(), date, location, description, true, times);
 		pollBean.getPolls().addPoll(poll);
 		pollBean.save();
@@ -41,20 +43,29 @@
 		<head>
 		<title></title>
 		</head>
-	<navbar></navbar>
+		<navbar>
+		<% 
+			if (creator == null) { 
+				out.print("<logged-out></logged-out>");
+			} else {
+				out.print("<logged-in></logged-in>");
+			}
+		%>
+		</navbar>
 
 	<%
-		if (submitted == null) {
-	%>
-	<createpoll></createpoll>
-	<%
+		if (creator != null) {
+		if (submitted == null && !pollexists) {
+			out.print("<createpoll></createpoll>");
+		} else if (submitted != null && pollexists) {	
+			out.print("<createpoll></createpoll>");
+			out.print("The poll title \"" + request.getParameter("title") + "\" already exists");
 		} else {
 	%>
-	<p>Poll Successfully Created</p>
-	<p>
-		Click <a href="index.jsp"> to go back to the main page.</a>
-	</p>
+	<success></success>
 	<%
+		}} else {
+			out.print("Please log in to create a poll");
 		}
 	%>
 	</body>

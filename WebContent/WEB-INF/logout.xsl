@@ -54,12 +54,6 @@
 			<a class="navbar-button" href="login.jsp">Login</a>
 		</div>
 	</xsl:template>
-	
-	<xsl:template match="logged-in">
-		<div class="navbar-buttons">
-			<a class="navbar-button" href="logout.jsp">Logout</a>
-		</div>
-	</xsl:template>
 
 	<xsl:template match="log-out">
 		

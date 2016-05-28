@@ -16,26 +16,29 @@
 	String username = request.getParameter("username");
 	String password = request.getParameter("password");
 	String submitted = request.getParameter("submitted");
-
 	Creator creator = creatorBean.getCreators().login(username, password);
+	if (username == null) username = "";
 %>
-
-<head>
-
-
-</head>
 
 <c:set var="xmltext">
 	<body>
 		<title></title>
-		<navbar></navbar>
+		<navbar>
+		<% 
+			if (creator == null) { 
+				out.print("<logged-out></logged-out>");
+			} else {
+				out.print("<logged-in></logged-in>");
+			}
+		%>
+		</navbar>
 		<%
 			if (creator != null) {
 					session.setAttribute("creator", creator);
-					out.print("<success></success>");
+					out.print("<success><username>"+ username +"</username></success>");
 
 				} else {
-					out.print("<main></main>");
+					out.print("<main><username>"+ username +"</username></main>");
 					if (submitted != null) {
 						out.print("<p>Username or password is incorrect</p>");
 					}

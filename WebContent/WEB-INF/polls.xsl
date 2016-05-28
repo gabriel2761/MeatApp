@@ -38,6 +38,13 @@
 			</body>
 		</html>
 	</xsl:template>
+	
+	<xsl:template match="success">
+		<p>Poll Successfully Created</p>
+		<p>
+			Click <a href="index.jsp">here</a> to go back to the main page.
+		</p>
+	</xsl:template>
 
 	<xsl:template match="navbar">
 		<nav class="navbar">
@@ -57,15 +64,14 @@
 	
 	<xsl:template match="logged-in">
 		<div class="navbar-buttons">
+			<a href="profile.jsp" class="navbar-button">Profile</a>
 			<a class="navbar-button" href="logout.jsp">Logout</a>
 		</div>
 	</xsl:template>
 	
-	
-	
 	<xsl:template match="createpoll">
 	<h2>Enter Poll Details</h2>
-	<form action="createpoll.jsp">
+	<form action="createpoll.jsp" method="post">
 			<table>
 			<tr><td>Title:</td><td><input type="text" name="title" required="true" /></td></tr>  
 			<tr><td>Date: </td><td><input type="text" name="date" required="true" /></td></tr> 
