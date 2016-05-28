@@ -4,7 +4,7 @@
 	<xsl:template match="/">
 		<html>
 			<head>
-				<title>MeatApp - Login</title>
+				<title>MeatApp - Profile</title>
 				<style>
 					html,
 					body {

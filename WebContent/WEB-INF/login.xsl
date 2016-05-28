@@ -68,7 +68,7 @@
 			<tr><td>Username:</td><td><input value="{username}" type="text" name="username" required="true" /></td></tr> 
 			<tr><td>Password:</td><td><input type="password" name="password" required="true" /></td></tr>
 			<tr><td></td><td><input type="hidden" name="submitted" value="yes" /></td></tr> 
-			<tr><td><input type="submit" /></td></tr>
+			<tr><td></td><td><input type="submit" value="Submit" /></td></tr>
 		</form>
 	</table>
 	</xsl:template>
