@@ -1,0 +1,11 @@
+eclipse.preferences.version=1
+encoding//src/uts/wsd/soap/client/Creator.java=UTF-8
+encoding//src/uts/wsd/soap/client/CreatorSoap.java=UTF-8
+encoding//src/uts/wsd/soap/client/CreatorSoapPortBindingStub.java=UTF-8
+encoding//src/uts/wsd/soap/client/CreatorSoapService.java=UTF-8
+encoding//src/uts/wsd/soap/client/CreatorSoapServiceLocator.java=UTF-8
+encoding//src/uts/wsd/soap/client/IOException.java=UTF-8
+encoding//src/uts/wsd/soap/client/JAXBException.java=UTF-8
+encoding//src/uts/wsd/soap/client/Poll.java=UTF-8
+encoding//src/uts/wsd/soap/client/StackTraceElement.java=UTF-8
+encoding//src/uts/wsd/soap/client/Vote.java=UTF-8
