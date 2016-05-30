@@ -53,7 +53,6 @@ public class CreatorSoap {
 	}
 
 	@WebMethod
-
 	public Creator login(String username, String password) throws JAXBException, IOException {
 		return getCreatorBean().getCreators().login(username, password);
 	}
